@@ -2,17 +2,44 @@ h1 {
   text-align: center;
 }
 td {
+    text-align: center;
+  padding:10 px;
   width: 100px;
   height: 100px;
 }
-table {
-  margin: 5px auto;
-}
+ 
 .vert {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+    padding:10 px;
+  border-left: 20px solid black;
+  border-right: 20px solid black;
+    text-align: center;
 }
 .hori {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+    text-align: center;
+    padding:10 px;
+  border-top: 20px solid black;
+  border-bottom: 20px solid black;
+}
+.button
+{
+    color:blue;
+    border-radius: 4px;
+    font-size: 40px;
+    background-color: orange;
+    border: 2px solid red;
+}
+
+.score_board
+{   color:orange;
+    text-align: center;       
+    margin-left:400px;
+    margin-right:400px;
+    background-color: blue;
+}
+
+.playing_area
+{
+   margin-left:400px;
+    margin-right:400px;
+    background-color: yellow; 
 }

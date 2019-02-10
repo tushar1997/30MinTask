@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<title>Tic Tac Toe</title>
+        <link rel="stylesheet" type="text/css" href="tic tac.css">
+        <link rel="shortcut icon" type="image/png" href="logo 1.png">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+</script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+</script>
+
+   <script>
+       var count= 0;
+       function play(id){
+                var c = id;
+                      if(count%2==0 ){
+               document.getElementById(c).value="O";
+                          console.log(document.getElementById(c).value);
+               count++;
+                          win('o');
+           }
+           else{
+               document.getElementById(c).value="X";
+               console.log(document.getElementById(c).value);
+               count++;
+               win('x');
+         }
+       }
+       function win(ch){
+       var a = document.getElementById("1").value;
+       var b = document.getElementById("2").value;
+       var c = document.getElementById("3").value;
+       var d = document.getElementById("4").value;
+       var e = document.getElementById("5").value;
+       var f = document.getElementById("6").value;
+       var g = document.getElementById("7").value;
+       var h = document.getElementById("8").value;
+       var i = document.getElementById("9").value; 
+           if(((a==b) && (a==c))|| ((d==e) && (d==f)) || ((g==h) && (g==i)) || 
+               ((a==d) && (a==g)) || ((b==e) && (b==h)) || ((c==f) && (c==i)) || 
+              ((a==e) && (a==i)) || ((c==e) && (c==g))) 
+                    {
+                alert ("Player "+ch+" won");
+                        window.location="tic tac.html";
+                        if (ch=='o'){
+                            var p1 = localStorage.getItem('player1score');
+                            var p2 = localStorage.getItem('player2score');
+                            var count = parseInt(p1) + 10;
+                            var count2 = parseInt(p2) - 5;
+                            document.getElementById("pointsX").value = count;
+                            document.getElementById("pointsY").value = count2;
+                            localStorage.setItem('player1score', count);
+                            localStorage.setItem('player2score', count2);
+                            console.log(document.getElementById("pointsX").value);
+                            console.log(document.getElementById("pointsY").value);
+                           var a = localStorage.getItem('player1score');
+                            var b = localStorage.getItem('player2score');
+                           document.getElementById("pointsX").innerHTML = a;
+                            document.getElementById("pointsY").innerHTML = b;
+                        }
+           elseif(ch=='x')
+                        {
+                            var p1 = localStorage.getItem('player1score');
+                            var p2 = localStorage.getItem('player2score');
+                            var count = parseInt(p1) - 5;
+                            var count2 = parseInt(p2) + 10;
+                            document.getElementById("pointsX").value = count;
+                            document.getElementById("pointsY").value = count2;
+                            localStorage.setItem('player1score', count);
+                            localStorage.setItem('player2score', count2);
+                            console.log(document.getElementById("pointsX").value);
+                            console.log(document.getElementById("pointsY").value);
+                            var a = localStorage.getItem('player1score');
+                            var b = localStorage.getItem('player2score');
+                           document.getElementById("pointsX").innerHTML = a;
+                            document.getElementById("pointsY").innerHTML = b;
+                        }
+                       
+              }
+      }
+       function get(){
+           localStorage.setItem('player1score','0');
+           localStorage.setItem('player2score','0');
+           var p1 = localStorage.getItem('player1score');
+                            var p2 = localStorage.getItem('player2score');
+                            document.getElementById("pointsX").value = parseInt(p1);
+                            document.getElementById("pointsY").value = parseInt(p2);
+       }
+    </script>
+    </head>
+    <body>
+        <br><br><br>
+       <div class="score_board"><br>
+           <span class="score">Player 1 Score </span><input id="pointsX" value="0" disabled><br><br>
+           <span class="score">Player 2 Score </span><input id="pointsY" value="0" disabled><br><br><br>
+       </div>
+        <br><br>
+        <div class="playing_area"><br>
+            <table align="center">
+                <tr>
+                    <td class="one" ><input type="button" class="button" value="1" id="1" onclick="play(1)"></td>
+                    <td class="two vert"><input type="button" class="button" value="2" id="2" onclick="play(2)"></td>
+                    <td class="three"><input type="button" class="button" value="3" id="3" onclick="play(3)"></td>
+                </tr>
+                <tr> 
+                    <td class="four hori"><input type="button" class="button" value="4" id="4" onclick="play(4)"></td>
+                    <td class="five vert hori"><input type="button" class="button" value="5" id="5" onclick="play(5)"></td>
+                    <td class="six hori"><input type="button" class="button" value="6" id="6" onclick="play(6)"></td>
+                </tr>
+                <tr>
+                    <td class="seven"><input type="button" class="button" value="7" id="7" onclick="play(7)"></td>
+                    <td class="eight vert"><input type="button" class="button" value="8" id="8" onclick="play(8)"></td>
+                    <td class="nine"><input type="button" class="button" value="9" id="9" onclick="play(9)"></td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </body>
+</html>
